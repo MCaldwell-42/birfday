@@ -4,10 +4,14 @@ import '../styles/main.scss';
 import auth from './components/auth/auth';
 import birf from './components/birfday/birfday';
 import apiKeys from './helpers/apiKeys.json';
+import navBar from './components/myNavBar/myNavbar';
+import authData from './helpers/data/authData';
 
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseKeys);
+  navBar.navbarEvents();
+  authData.checkLoginStatus();
   auth.authStringBuilder();
   birf.birfStringBuilder();
 };
