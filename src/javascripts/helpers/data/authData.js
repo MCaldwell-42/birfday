@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import birf from '../../components/birfday/birfday';
 
 const authDiv = document.getElementById('auth');
 const birfdayDiv = document.getElementById('birfday');
@@ -16,6 +17,7 @@ const checkLoginStatus = () => {
       birfdayNavbar.classList.remove('hide');
       authNavbar.classList.add('hide');
       logoutNavbar.classList.remove('hide');
+      birf.birfStringBuilder(user.uid);
     } else {
       authDiv.classList.remove('hide');
       birfdayDiv.classList.add('hide');
@@ -25,5 +27,6 @@ const checkLoginStatus = () => {
     }
   });
 };
+
 
 export default { checkLoginStatus };
